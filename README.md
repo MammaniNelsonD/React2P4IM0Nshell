@@ -35,7 +35,7 @@ Extraigo Action IDs de los chunks JS públicos. Manipulo la petición para que e
 
 Envío referencias de promesas circulares ($@1 -> $@0). Esto provoca un bucle infinito en el servidor. Si la petición muere por timeout, la vulnerabilidad está confirmada. ⏳
 
-![photo_5037386259390729086_w (1)](https://github.com/user-attachments/assets/580f5675-b245-4b1c-8fd0-26b70cc0a51d)
+![photo_5042010423045065508_w](https://github.com/user-attachments/assets/c5e2c912-fc31-4565-b25a-50b526a809b5)
 
 
 🛠️ Herramientas Tácticas
