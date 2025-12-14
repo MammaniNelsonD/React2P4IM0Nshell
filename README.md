@@ -63,3 +63,53 @@ Acceso directo para validación cruzada. Abro búsquedas pre-filtradas en Shodan
 Esta herramienta es una prueba de concepto (POC) para investigación de seguridad y laboratorios autorizados. No me hago responsable del mal uso que se le dé. 🛡️
 
 Developed by P4IM0N
+
+
+🛠️ Guía de Instalación y Uso (Extensión de Chrome)
+Para comenzar a utilizar la herramienta de forma ética, sigue estos sencillos pasos para cargar la extensión en tu navegador Google Chrome y preparar el entorno de laboratorio.
+
+1. 🌐 Preparación del Laboratorio Vulnerable
+Antes de cargar la extensión, debes configurar el entorno vulnerable para practicar:
+
+Localiza el Archivo ZIP: En la raíz de este repositorio, encontrarás un archivo llamado laboratorio-vulnerable.zip.
+
+Extracción: Es IMPERATIVO que muevas este archivo ZIP fuera de la carpeta del repositorio que descargaste.
+
+⚠️ ¡ATENCIÓN! Extrae el archivo laboratorio-vulnerable.zip a una ubicación segura y separada. Este archivo contiene el código del servidor vulnerable listo para ser desplegado.
+
+Despliegue (VPS/Entorno Local):
+
+Sube el contenido extraído (laboratorio-vulnerable) a tu VPS (Servidor Privado Virtual) o a un entorno de prueba local (como una máquina virtual).
+
+Ejecuta el script deploy.sh (o el equivalente para tu sistema) para iniciar el servidor vulnerable.
+
+Propósito: Este paso asegura que tengas un blanco legítimo y controlado para practicar la explotación de forma ética.
+
+2. 🛡️ Carga de la Extensión en Chrome
+Una vez que tengas el laboratorio desplegado y accesible, carga la extensión de Chrome:
+
+Abre el Administrador de Extensiones de Chrome:
+
+Escribe en la barra de direcciones: chrome://extensions
+
+Activa el "Modo Desarrollador":
+
+Busca el interruptor en la esquina superior derecha y asegúrate de que esté activado (el botón debe estar en azul/activo).
+
+Carga la Extensión:
+
+Haz clic en el botón "Cargar extensión sin empaquetar" (Load unpacked).
+
+Selecciona la Carpeta:
+
+Navega a la carpeta principal de este repositorio que descargaste.
+
+Selecciona la subcarpeta que contiene los archivos de la extensión (generalmente llamada extension, chrome-extension, o similar).
+
+Haz clic en "Seleccionar carpeta".
+
+¡Listo!
+
+La extensión aparecerá en tu lista y su icono debería ser visible en la barra de herramientas de Chrome.
+
+¡Ya puedes utilizar tu extensión para escanear y probar las vulnerabilidades en tu propio laboratorio de forma responsable! 🧠💻
