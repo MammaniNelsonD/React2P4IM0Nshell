@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { 
+          "header": "Referer", 
+          "operation": "set", 
+          "value": "React2P4IM0Nshell-Sonda" 
+        },
+        { 
+          "header": "Origin", 
+          "operation": "remove" 
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "*", 
+      "resourceTypes": ["xmlhttprequest"] 
+    }
+  }
+]
